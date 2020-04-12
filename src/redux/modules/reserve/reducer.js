@@ -35,6 +35,17 @@ export default function reserve(state = [], action) {
         }
 
       })
+
+    case 'REMOVE_RESERVE':
+      return produce(state, draftState => {
+        const tripIndex = draftState.findIndex(trip => trip.id === action.id)
+
+        //Excluindo o primeiro objeto com o splice
+        if (tripIndex >= 0) {
+          draftState.splice(tripIndex, 1);
+        }
+      })
+
     default:
       return state;
   }
