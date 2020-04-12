@@ -40,7 +40,7 @@ export default function reserve(state = [], action) {
       return produce(state, draftState => {
         const tripIndex = draftState.findIndex(trip => trip.id === action.id)
 
-        //Excluindo o primeiro objeto com o splice
+        //Excluindo o primeiro posição do objeto com o splice
         if (tripIndex >= 0) {
           draftState.splice(tripIndex, 1);
         }
