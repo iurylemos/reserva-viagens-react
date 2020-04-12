@@ -13,3 +13,11 @@ export function removeReserve(id) {
     id
   }
 }
+
+export function updateAmoutReserve(id, quantidade) {
+  return {
+    type: 'UPDATE_RESERVE',
+    id,
+    quantidade
+  }
+}

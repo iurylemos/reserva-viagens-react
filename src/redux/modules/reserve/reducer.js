@@ -46,6 +46,21 @@ export default function reserve(state = [], action) {
         }
       })
 
+    case 'UPDATE_RESERVE': {
+
+      if (action.quantidade <= 0) {
+        return state
+      }
+
+      return produce(state, draftState => {
+        const tripIndex = draftState.findIndex(trip => trip.id === action.id)
+        //Aqui eu verifico se existe, e dependendo do action quantidade
+        //Que pode ser mais um ou menos um e adiciono ou removo
+        if (tripIndex >= 0) {
+          draftState[tripIndex].quantidade = Number(action.quantidade)
+        }
+      })
+    }
     default:
       return state;
   }
